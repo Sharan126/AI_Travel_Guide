@@ -81,8 +81,8 @@ This repository includes a `render.yaml` Blueprint for one-click setup on Render
 3. Connect your GitHub repository: `Sharan126/AI_Travel_Guide`.
 4. Configure the settings:
    - **Environment**: `Python 3`
-   - **Build Command**: `pip install -r Backend/requirements.txt`
-   - **Start Command**: `gunicorn --chdir Backend app:app`
+   - **Build Command**: `pip install -r requirements.txt` (Default)
+   - **Start Command**: `gunicorn app:app` (Default)
 5. Under **Environment Variables**, add:
    - `MURF_API_KEY`: *(Your Murf AI API key)*
    - `GEMINI_API_KEY`: *(Your Gemini API key)*
