@@ -123,9 +123,10 @@ voiceButtons.forEach(btn => {
 });
 
 
-// Generate Audio guide button Logic
-
-const GENERATE_AUDIO_GUIDE_API_URL = "http://127.0.0.1:5000/generate-audio-guide";
+const GENERATE_AUDIO_GUIDE_API_URL =
+  window.location.port === "8000" || window.location.port === "5500" || window.location.protocol === "file:"
+    ? "http://127.0.0.1:5000/generate-audio-guide"
+    : `${window.location.origin}/generate-audio-guide`;
 
 generateButton.addEventListener('click', async () => {
   generateButton.disabled = true;

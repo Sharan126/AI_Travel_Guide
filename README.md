@@ -62,21 +62,31 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 4. Running the Application
+### 4. Running the Application Locally
 
-**Start the Backend server:**
 ```bash
 cd Backend
 python app.py
 ```
-The Flask backend runs at `http://127.0.0.1:5000`.
+Open [http://127.0.0.1:5000](http://127.0.0.1:5000) directly in your browser. The unified server serves both the interactive frontend and the audio guide API.
 
-**Start the Frontend server:**
-```bash
-cd Frontend
-python -m http.server 8000
-```
-Open [http://localhost:8000/index.html](http://localhost:8000/index.html) in your browser.
+---
+
+## ☁️ Deployment (Render)
+
+This repository includes a `render.yaml` Blueprint for one-click setup on Render.
+
+1. Go to **[dashboard.render.com](https://dashboard.render.com)**.
+2. Click **New +** → **Web Service** (or **Blueprint**).
+3. Connect your GitHub repository: `Sharan126/AI_Travel_Guide`.
+4. Configure the settings:
+   - **Environment**: `Python 3`
+   - **Build Command**: `pip install -r Backend/requirements.txt`
+   - **Start Command**: `gunicorn --chdir Backend app:app`
+5. Under **Environment Variables**, add:
+   - `MURF_API_KEY`: *(Your Murf AI API key)*
+   - `GEMINI_API_KEY`: *(Your Gemini API key)*
+6. Click **Deploy Web Service**.
 
 ---
 

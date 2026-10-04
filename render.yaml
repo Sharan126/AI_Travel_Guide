@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: ai-travel-guide
+    runtime: python
+    buildCommand: pip install -r Backend/requirements.txt
+    startCommand: gunicorn --chdir Backend app:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: MURF_API_KEY
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
